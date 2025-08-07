@@ -1,0 +1,44 @@
+body {
+  background: #f8fafc;
+}
+.logo-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.logo-img-sm {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.text-orange {
+  color: #e67e22;
+}
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 16px rgba(30, 130, 76, 0.07);
+}
+@media (max-width: 576px) {
+  .logo-img, .logo-img-sm {
+    width: 50px;
+    height: 50px;
+  }
+  .card {
+    padding: 8px !important;
+  }
+}
+@media print {
+  body * { visibility: hidden; }
+  #printArea, #printArea * { visibility: visible; }
+  #printArea {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100vw;
+    background: #fff;
+    box-shadow: none;
+  }
+}

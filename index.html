@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seva Samarth Foundation | Updation Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+  <div class="container my-4">
+    <div class="text-center mb-4">
+      <img src="logo.png" alt="Seva Samarth Foundation Logo" class="logo-img mb-2">
+      <h2 class="text-success">Seva Samarth Foundation</h2>
+      <h4 class="text-orange">Updation Form</h4>
+    </div>
+    <div id="form-section">
+      <form id="dataForm">
+        <div class="row g-2">
+          <div class="col-md-6">
+            <label class="form-label">Registration No.</label>
+            <input type="text" class="form-control" name="registrationNo" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Admission Date</label>
+            <input type="date" class="form-control" name="admissionDate" required>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Guardian Name</label>
+            <input type="text" class="form-control" name="guardianName">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Mobile No.</label>
+            <input type="text" class="form-control" name="mobileNo">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Full Address</label>
+            <input type="text" class="form-control" name="address">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">State</label>
+            <input type="text" class="form-control" name="state">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Country</label>
+            <input type="text" class="form-control" name="country">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Approx Age</label>
+            <input type="text" class="form-control" name="age">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Gender</label>
+            <select class="form-select" name="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Weight (Kg)</label>
+            <input type="number" class="form-control" name="weight">
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Identification Mark</label>
+            <input type="text" class="form-control" name="identificationMark">
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">Health Status</label>
+            <input type="text" class="form-control" name="healthStatus">
+          </div>
+          <div class="col-12 d-grid mt-3">
+            <button type="submit" class="btn btn-success btn-lg">Show Summary</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="summary-section" style="display:none;">
+      <div class="card p-4" id="printArea">
+        <div class="row align-items-center">
+          <div class="col-3 text-center">
+            <img src="logo.png" alt="Seva Samarth Foundation Logo" class="logo-img-sm">
+          </div>
+          <div class="col-9">
+            <h5 class="text-success mb-0">Seva Samarth Foundation</h5>
+            <small class="text-muted">Updation Form</small>
+          </div>
+        </div>
+        <hr>
+        <div id="summary-content" class="mt-2"></div>
+      </div>
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-secondary" id="editFormBtn">Edit</button>
+        <button class="btn btn-warning" id="printBtn">Print</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
