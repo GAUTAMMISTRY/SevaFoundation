@@ -5,64 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seva Samarth Foundation | Updation Form</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <style>
-    body {
-      background: linear-gradient(to right, #f0f9ff, #e0f7f3);
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .logo-img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .card-custom {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-    .card-header-custom {
-      background: linear-gradient(135deg, #28a745, #218838);
-      color: #fff;
-      font-weight: 500;
-      font-size: 1.1rem;
-      border-radius: 12px 12px 0 0;
-      padding: 12px 20px;
-    }
-    label {
-      font-weight: 500;
-      color: #333;
-    }
-    @media print {
-      body * { visibility: hidden; }
-      #printArea, #printArea * { visibility: visible; }
-      #printArea {
-        position: absolute;
-        left: 0; top: 0;
-        width: 100vw;
-        background: #fff;
-        box-shadow: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-light">
   <div class="container my-4">
     <div class="text-center mb-4">
       <img src="logo.png" alt="Seva Samarth Foundation Logo" class="logo-img mb-2">
-      <h2 class="text-success fw-bold">Seva Samarth Foundation</h2>
-      <h5 class="text-warning fw-semibold">Updation Form</h5>
+      <h2 class="text-success">Seva Samarth Foundation</h2>
+      <h4 class="text-orange">Updation Form</h4>
     </div>
 
-    <!-- Form Section -->
-    <div id="form-section" class="card card-custom mb-4">
-      <div class="card-header-custom">
-        Fill in the Details
-      </div>
-      <div class="card-body">
-        <form id="dataForm" class="row g-3">
-          <!-- Basic Info -->
+    <div id="form-section">
+      <form id="dataForm">
+        <div class="row g-2">
           <div class="col-md-6">
             <label class="form-label">Registration No.</label>
             <input type="text" class="form-control" name="registrationNo" required>
@@ -103,9 +58,9 @@
             <label class="form-label">Gender</label>
             <select class="form-select" name="gender">
               <option value="">Select</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
             </select>
           </div>
           <div class="col-md-4">
@@ -120,125 +75,30 @@
             <label class="form-label">Health Status</label>
             <input type="text" class="form-control" name="healthStatus">
           </div>
-
-          <!-- Checkbox -->
-          <div class="col-md-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="relativeAdmit" name="relativeAdmit">
-              <label class="form-check-label" for="relativeAdmit">If any relative admitted</label>
-            </div>
-          </div>
-
-          <!-- More Fields -->
-          <div class="col-md-6">
-            <label class="form-label">Relation with Guardian</label>
-            <input type="text" class="form-control" name="relationWithGuardian">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Informer Details</label>
-            <input type="text" class="form-control" name="informerDetails">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Admitted by Organization/Ward Name</label>
-            <input type="text" class="form-control" name="admittedByOrg">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Conveyance Vehicle No.</label>
-            <input type="text" class="form-control" name="vehicleNo">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Name of Entrant Driver/Sewarthi</label>
-            <input type="text" class="form-control" name="entrantName">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Driver/Sewarthi Mobile No.</label>
-            <input type="text" class="form-control" name="entrantMobile">
-          </div>
-          <div class="col-md-12">
-            <label class="form-label">Comments / Status at Time of Admission</label>
-            <textarea class="form-control" name="admissionComments"></textarea>
-          </div>
-
-          <!-- More Details -->
-          <div class="col-md-4">
-            <label class="form-label">Relation</label>
-            <input type="text" class="form-control" name="relation">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">District</label>
-            <input type="text" class="form-control" name="district">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Aadhar Number</label>
-            <input type="text" class="form-control" name="aadharNo">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Date of Birth</label>
-            <input type="date" class="form-control" name="dob">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Religion</label>
-            <input type="text" class="form-control" name="religion">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Height (cm)</label>
-            <input type="number" class="form-control" name="height">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Voter ID</label>
-            <input type="text" class="form-control" name="voterId">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Category</label>
-            <input type="text" class="form-control" name="category">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Pickup / Birth Place</label>
-            <input type="text" class="form-control" name="birthPlace">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Letter No.</label>
-            <input type="text" class="form-control" name="letterNo">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Name of Driver/Sewarthi</label>
-            <input type="text" class="form-control" name="driverName">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Driver/Sewarthi Mobile No.</label>
-            <input type="text" class="form-control" name="driverMobile">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Thing/Kind Amount</label>
-            <input type="text" class="form-control" name="thingAmount">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Video URL</label>
-            <input type="url" class="form-control" name="videoUrl">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Rehab Status</label>
-            <input type="text" class="form-control" name="rehabStatus">
-          </div>
-
-          <!-- Save & Show Buttons -->
           <div class="col-12 d-flex justify-content-between mt-3">
             <button type="button" id="saveBtn" class="btn btn-primary btn-lg">Save</button>
             <button type="submit" class="btn btn-success btn-lg">Show Summary</button>
+            <button type="button" id="viewDataBtn" class="btn btn-info btn-lg">View Data</button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
 
-    <!-- Summary Section -->
     <div id="summary-section" style="display:none;">
-      <div class="card card-custom mb-3" id="printArea">
-        <div class="card-header-custom">
-          Summary
+      <div class="card p-4" id="printArea">
+        <div class="row align-items-center">
+          <div class="col-3 text-center">
+            <img src="logo.png" alt="Logo" class="logo-img-sm">
+          </div>
+          <div class="col-9">
+            <h5 class="text-success mb-0">Seva Samarth Foundation</h5>
+            <small class="text-muted">Updation Form</small>
+          </div>
         </div>
-        <div class="card-body" id="summary-content"></div>
+        <hr>
+        <div id="summary-content" class="mt-2"></div>
       </div>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mt-3">
         <button class="btn btn-secondary" id="editFormBtn">Edit</button>
         <button class="btn btn-warning" id="printBtn">Print</button>
       </div>
@@ -246,32 +106,33 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     $(function() {
-      // Save button click
+      function saveToHistory(dataObj) {
+        let history = JSON.parse(localStorage.getItem('sevaFormHistory')) || [];
+        history.push(dataObj);
+        localStorage.setItem('sevaFormHistory', JSON.stringify(history));
+      }
+
       $('#saveBtn').on('click', function() {
         const formData = $('#dataForm').serializeArray();
         const dataObj = {};
         formData.forEach(item => dataObj[item.name] = item.value);
-        dataObj.relativeAdmit = $('#relativeAdmit').is(':checked') ? 'Yes' : 'No';
-
-        localStorage.setItem('sevaFormData', JSON.stringify(dataObj));
+        saveToHistory(dataObj);
         alert("Form data saved successfully!");
       });
 
-      // Show summary
       $('#dataForm').on('submit', function(e) {
         e.preventDefault();
         const data = {};
         $(this).serializeArray().forEach(function(item) {
           data[item.name] = item.value;
         });
-        data.relativeAdmit = $('#relativeAdmit').is(':checked') ? 'Yes' : 'No';
+        saveToHistory(data);
 
         let summaryHtml = Object.entries(data).map(([key, val]) => {
           if (!val) return '';
-          return `<p><strong>${key.replace(/([A-Z])/g, ' $1')}:</strong> ${val}</p>`;
+          return `<p><strong>${key}:</strong> ${val}</p>`;
         }).join('');
 
         $('#summary-content').html(summaryHtml);
@@ -279,15 +140,17 @@
         $('#summary-section').show();
       });
 
-      // Edit form
       $('#editFormBtn').on('click', function() {
         $('#summary-section').hide();
         $('#form-section').show();
       });
 
-      // Print
       $('#printBtn').on('click', function() {
-        window.open('print-template.html', '_blank');
+        window.print();
+      });
+
+      $('#viewDataBtn').on('click', function() {
+        window.open('view-data.html', '_blank');
       });
     });
   </script>
