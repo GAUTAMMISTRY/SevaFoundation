@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <style>
     body {
-      background: #f8fafc;
+      background: linear-gradient(to right, #f0f9ff, #e0f7f3);
+      font-family: 'Segoe UI', sans-serif;
     }
     .logo-img {
       width: 90px;
       height: 90px;
       object-fit: contain;
       border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .logo-img-sm {
       width: 60px;
@@ -22,22 +23,22 @@
       object-fit: contain;
       border-radius: 50%;
     }
-    .text-orange {
-      color: #e67e22;
-    }
-    .card {
+    .card-custom {
       background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 2px 16px rgba(30, 130, 76, 0.07);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
-    @media (max-width: 576px) {
-      .logo-img, .logo-img-sm {
-        width: 50px;
-        height: 50px;
-      }
-      .card {
-        padding: 8px !important;
-      }
+    .card-header-custom {
+      background: linear-gradient(135deg, #28a745, #218838);
+      color: #fff;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-radius: 12px 12px 0 0;
+      padding: 12px 20px;
+    }
+    label {
+      font-weight: 500;
+      color: #333;
     }
     @media print {
       body * { visibility: hidden; }
@@ -52,19 +53,22 @@
     }
   </style>
 </head>
-<body class="bg-light">
+<body>
   <div class="container my-4">
     <div class="text-center mb-4">
       <img src="logo.png" alt="Seva Samarth Foundation Logo" class="logo-img mb-2">
-      <h2 class="text-success">Seva Samarth Foundation</h2>
-      <h4 class="text-orange">Updation Form</h4>
+      <h2 class="text-success fw-bold">Seva Samarth Foundation</h2>
+      <h5 class="text-warning fw-semibold">Updation Form</h5>
     </div>
 
     <!-- Form Section -->
-    <div id="form-section">
-      <form id="dataForm">
-        <div class="row g-2">
-          <!-- Basic Info -->
+    <div id="form-section" class="card card-custom mb-4">
+      <div class="card-header-custom">
+        Fill in the Details
+      </div>
+      <div class="card-body">
+        <form id="dataForm" class="row g-3">
+          <!-- Existing & New Fields (shortened spacing with Bootstrap) -->
           <div class="col-md-6">
             <label class="form-label">Registration No.</label>
             <input type="text" class="form-control" name="registrationNo" required>
@@ -123,7 +127,7 @@
             <input type="text" class="form-control" name="healthStatus">
           </div>
 
-          <!-- New: Relative Admission -->
+          <!-- New fields -->
           <div class="col-md-12">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="relativeAdmit" name="relativeAdmit">
@@ -134,20 +138,14 @@
             <label class="form-label">Relation with Guardian</label>
             <input type="text" class="form-control" name="relationWithGuardian">
           </div>
-
-          <!-- New: Informer Details -->
           <div class="col-md-6">
             <label class="form-label">Informer Details</label>
             <input type="text" class="form-control" name="informerDetails">
           </div>
-
-          <!-- New: Admitted by Organization / Ward -->
           <div class="col-md-6">
             <label class="form-label">Admitted by Organization/Ward Name</label>
             <input type="text" class="form-control" name="admittedByOrg">
           </div>
-
-          <!-- New: Conveyance Details -->
           <div class="col-md-4">
             <label class="form-label">Conveyance Vehicle No.</label>
             <input type="text" class="form-control" name="vehicleNo">
@@ -160,14 +158,10 @@
             <label class="form-label">Driver/Sewarthi Mobile No.</label>
             <input type="text" class="form-control" name="entrantMobile">
           </div>
-
-          <!-- New: Comments / Status -->
           <div class="col-md-12">
             <label class="form-label">Comments / Status at Time of Admission</label>
             <textarea class="form-control" name="admissionComments"></textarea>
           </div>
-
-          <!-- New: If Incomplete Address -->
           <div class="col-md-4">
             <label class="form-label">Relation</label>
             <input type="text" class="form-control" name="relation">
@@ -180,8 +174,6 @@
             <label class="form-label">Aadhar Number</label>
             <input type="text" class="form-control" name="aadharNo">
           </div>
-
-          <!-- New: DOB & Religion -->
           <div class="col-md-4">
             <label class="form-label">Date of Birth</label>
             <input type="date" class="form-control" name="dob">
@@ -194,8 +186,6 @@
             <label class="form-label">Height (cm)</label>
             <input type="number" class="form-control" name="height">
           </div>
-
-          <!-- New: Voter ID & Category -->
           <div class="col-md-4">
             <label class="form-label">Voter ID</label>
             <input type="text" class="form-control" name="voterId">
@@ -208,8 +198,6 @@
             <label class="form-label">Pickup / Birth Place</label>
             <input type="text" class="form-control" name="birthPlace">
           </div>
-
-          <!-- New: Letter & Transport -->
           <div class="col-md-4">
             <label class="form-label">Letter No.</label>
             <input type="text" class="form-control" name="letterNo">
@@ -222,48 +210,34 @@
             <label class="form-label">Driver/Sewarthi Mobile No.</label>
             <input type="text" class="form-control" name="driverMobile">
           </div>
-
-          <!-- New: Things / Kind / Amount -->
           <div class="col-md-4">
             <label class="form-label">Thing/Kind Amount</label>
             <input type="text" class="form-control" name="thingAmount">
           </div>
-
-          <!-- New: Video URL -->
           <div class="col-md-4">
             <label class="form-label">Video URL</label>
             <input type="url" class="form-control" name="videoUrl">
           </div>
-
-          <!-- New: Rehab Status -->
           <div class="col-md-4">
             <label class="form-label">Rehab Status</label>
             <input type="text" class="form-control" name="rehabStatus">
           </div>
-
           <div class="col-12 d-grid mt-3">
             <button type="submit" class="btn btn-success btn-lg">Show Summary</button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
 
     <!-- Summary Section -->
     <div id="summary-section" style="display:none;">
-      <div class="card p-4" id="printArea">
-        <div class="row align-items-center">
-          <div class="col-3 text-center">
-            <img src="logo.png" alt="Seva Samarth Foundation Logo" class="logo-img-sm">
-          </div>
-          <div class="col-9">
-            <h5 class="text-success mb-0">Seva Samarth Foundation</h5>
-            <small class="text-muted">Updation Form</small>
-          </div>
+      <div class="card card-custom mb-3" id="printArea">
+        <div class="card-header-custom">
+          Summary
         </div>
-        <hr>
-        <div id="summary-content" class="mt-2"></div>
+        <div class="card-body" id="summary-content"></div>
       </div>
-      <div class="d-flex justify-content-between mt-3">
+      <div class="d-flex justify-content-between">
         <button class="btn btn-secondary" id="editFormBtn">Edit</button>
         <button class="btn btn-warning" id="printBtn">Print</button>
       </div>
@@ -282,74 +256,10 @@
         });
         data.relativeAdmit = $('#relativeAdmit').is(':checked');
 
-        let summaryHtml = `
-          <div class="row">
-            <div class="col-6"><strong>Registration No.:</strong> ${data.registrationNo || ''}</div>
-            <div class="col-6"><strong>Admission Date:</strong> ${data.admissionDate || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-6"><strong>Name:</strong> ${data.name || ''}</div>
-            <div class="col-6"><strong>Guardian Name:</strong> ${data.guardianName || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-6"><strong>Mobile No.:</strong> ${data.mobileNo || ''}</div>
-            <div class="col-6"><strong>Address:</strong> ${data.address || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>State:</strong> ${data.state || ''}</div>
-            <div class="col-4"><strong>Country:</strong> ${data.country || ''}</div>
-            <div class="col-4"><strong>Age:</strong> ${data.age || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>Gender:</strong> ${data.gender || ''}</div>
-            <div class="col-4"><strong>Weight:</strong> ${data.weight || ''} kg</div>
-            <div class="col-4"><strong>Identification Mark:</strong> ${data.identificationMark || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-12"><strong>Health Status:</strong> ${data.healthStatus || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-6"><strong>Relative Admitted:</strong> ${data.relativeAdmit ? 'Yes' : 'No'}</div>
-            <div class="col-6"><strong>Relation with Guardian:</strong> ${data.relationWithGuardian || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-6"><strong>Informer Details:</strong> ${data.informerDetails || ''}</div>
-            <div class="col-6"><strong>Admitted By Organization/Ward:</strong> ${data.admittedByOrg || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>Vehicle No.:</strong> ${data.vehicleNo || ''}</div>
-            <div class="col-4"><strong>Entrant Driver/Sewarthi:</strong> ${data.entrantName || ''}</div>
-            <div class="col-4"><strong>Entrant Mobile:</strong> ${data.entrantMobile || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-12"><strong>Admission Comments:</strong> ${data.admissionComments || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>Relation:</strong> ${data.relation || ''}</div>
-            <div class="col-4"><strong>District:</strong> ${data.district || ''}</div>
-            <div class="col-4"><strong>Aadhar No.:</strong> ${data.aadharNo || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>DOB:</strong> ${data.dob || ''}</div>
-            <div class="col-4"><strong>Religion:</strong> ${data.religion || ''}</div>
-            <div class="col-4"><strong>Height:</strong> ${data.height || ''} cm</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>Voter ID:</strong> ${data.voterId || ''}</div>
-            <div class="col-4"><strong>Category:</strong> ${data.category || ''}</div>
-            <div class="col-4"><strong>Birth Place:</strong> ${data.birthPlace || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>Letter No.:</strong> ${data.letterNo || ''}</div>
-            <div class="col-4"><strong>Driver/Sewarthi Name:</strong> ${data.driverName || ''}</div>
-            <div class="col-4"><strong>Driver Mobile:</strong> ${data.driverMobile || ''}</div>
-          </div>
-          <div class="row">
-            <div class="col-4"><strong>Thing/Kind Amount:</strong> ${data.thingAmount || ''}</div>
-            <div class="col-4"><strong>Video URL:</strong> ${data.videoUrl || ''}</div>
-            <div class="col-4"><strong>Rehab Status:</strong> ${data.rehabStatus || ''}</div>
-          </div>
-        `;
+        let summaryHtml = Object.entries(data).map(([key, val]) => {
+          if (!val) return '';
+          return `<p><strong>${key.replace(/([A-Z])/g, ' $1')}:</strong> ${val}</p>`;
+        }).join('');
 
         $('#summary-content').html(summaryHtml);
         $('#form-section').hide();
