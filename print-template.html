@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Seva Samarth Foundation - Admission Summary</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 20px;
+    color: #000;
+  }
+  .header {
+    text-align: center;
+    border-bottom: 3px solid #28a745;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  .header img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+  .header h1 {
+    margin: 5px 0;
+    color: #28a745;
+    font-size: 1.6rem;
+  }
+  .header h3 {
+    margin: 0;
+    color: #666;
+    font-weight: normal;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .data-table td {
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  .label {
+    font-weight: bold;
+    width: 35%;
+  }
+  @media print {
+    body {
+      margin: 0;
+      padding: 10px;
+    }
+    .header {
+      border-bottom: 2px solid #000;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="logo.png" alt="Foundation Logo">
+  <h1>Seva Samarth Foundation</h1>
+  <h3>Admission / Updation Summary</h3>
+</div>
+
+<table class="data-table" id="printData"></table>
+
+<script>
+  function formatLabel(key) {
+    const labels = {
+      registrationNo: "Registration No.",
+      admissionDate: "Admission Date",
+      name: "Name",
+      guardianName: "Guardian Name",
+      mobileNo: "Mobile No.",
+      address: "Full Address",
+      state: "State",
+      country: "Country",
+      age: "Approx Age",
+      gender: "Gender",
+      weight: "Weight (Kg)",
+      identificationMark: "Identification Mark",
+      healthStatus: "Health Status",
+      relativeAdmit: "Relative Admitted",
+      relationWithGuardian: "Relation with Guardian",
+      informerDetails: "Informer Details",
+      admittedByOrg: "Admitted by Organization/Ward Name",
+      vehicleNo: "Conveyance Vehicle No.",
+      entrantName: "Entrant Driver/Sewarthi Name",
+      entrantMobile: "Entrant Driver/Sewarthi Mobile No.",
+      admissionComments: "Admission Comments / Status",
+      relation: "Relation",
+      district: "District",
+      aadharNo: "Aadhar Number",
+      dob: "Date of Birth",
+      religion: "Religion",
+      height: "Height (cm)",
+      voterId: "Voter ID",
+      category: "Category",
+      birthPlace: "Pickup / Birth Place",
+      letterNo: "Letter No.",
+      driverName: "Driver/Sewarthi Name",
+      driverMobile: "Driver/Sewarthi Mobile No.",
+      thingAmount: "Thing / Kind Amount",
+      videoUrl: "Video URL",
+      rehabStatus: "Rehab Status"
+    };
+    return labels[key] || key;
+  }
+
+  const data = JSON.parse(localStorage.getItem('sevaFormData')) || {};
+  const table = document.getElementById('printData');
+
+  Object.keys(data).forEach(key => {
+    if (data[key]) {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td class="label">${formatLabel(key)}</td><td>${data[key]}</td>`;
+      table.appendChild(row);
+    }
+  });
+
+  // Auto print after load
+  window.onload = () => {
+    window.print();
+  };
+</script>
+
+</body>
+</html>
