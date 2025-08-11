@@ -271,9 +271,16 @@
         $('#form-section').show();
       });
 
-      $('#printBtn').on('click', function() {
-        window.print();
-      });
+     $('#printBtn').on('click', function() {
+  const formData = $('#dataForm').serializeArray();
+  const dataObj = {};
+  formData.forEach(item => dataObj[item.name] = item.value);
+  dataObj.relativeAdmit = $('#relativeAdmit').is(':checked') ? 'Yes' : 'No';
+
+  localStorage.setItem('sevaFormData', JSON.stringify(dataObj));
+  window.open('print-template.html', '_blank');
+});
+
     });
   </script>
 </body>
