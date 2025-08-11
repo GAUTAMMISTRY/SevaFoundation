@@ -17,12 +17,6 @@
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .logo-img-sm {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
     .card-custom {
       background: #fff;
       border-radius: 12px;
@@ -68,7 +62,7 @@
       </div>
       <div class="card-body">
         <form id="dataForm" class="row g-3">
-          <!-- Existing & New Fields (shortened spacing with Bootstrap) -->
+          <!-- Basic Info -->
           <div class="col-md-6">
             <label class="form-label">Registration No.</label>
             <input type="text" class="form-control" name="registrationNo" required>
@@ -127,13 +121,15 @@
             <input type="text" class="form-control" name="healthStatus">
           </div>
 
-          <!-- New fields -->
+          <!-- Checkbox -->
           <div class="col-md-12">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="relativeAdmit" name="relativeAdmit">
               <label class="form-check-label" for="relativeAdmit">If any relative admitted</label>
             </div>
           </div>
+
+          <!-- More Fields -->
           <div class="col-md-6">
             <label class="form-label">Relation with Guardian</label>
             <input type="text" class="form-control" name="relationWithGuardian">
@@ -162,6 +158,8 @@
             <label class="form-label">Comments / Status at Time of Admission</label>
             <textarea class="form-control" name="admissionComments"></textarea>
           </div>
+
+          <!-- More Details -->
           <div class="col-md-4">
             <label class="form-label">Relation</label>
             <input type="text" class="form-control" name="relation">
@@ -222,7 +220,10 @@
             <label class="form-label">Rehab Status</label>
             <input type="text" class="form-control" name="rehabStatus">
           </div>
-          <div class="col-12 d-grid mt-3">
+
+          <!-- Save & Show Buttons -->
+          <div class="col-12 d-flex justify-content-between mt-3">
+            <button type="button" id="saveBtn" class="btn btn-primary btn-lg">Save</button>
             <button type="submit" class="btn btn-success btn-lg">Show Summary</button>
           </div>
         </form>
@@ -248,13 +249,25 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     $(function() {
+      // Save button click
+      $('#saveBtn').on('click', function() {
+        const formData = $('#dataForm').serializeArray();
+        const dataObj = {};
+        formData.forEach(item => dataObj[item.name] = item.value);
+        dataObj.relativeAdmit = $('#relativeAdmit').is(':checked') ? 'Yes' : 'No';
+
+        localStorage.setItem('sevaFormData', JSON.stringify(dataObj));
+        alert("Form data saved successfully!");
+      });
+
+      // Show summary
       $('#dataForm').on('submit', function(e) {
         e.preventDefault();
         const data = {};
         $(this).serializeArray().forEach(function(item) {
           data[item.name] = item.value;
         });
-        data.relativeAdmit = $('#relativeAdmit').is(':checked');
+        data.relativeAdmit = $('#relativeAdmit').is(':checked') ? 'Yes' : 'No';
 
         let summaryHtml = Object.entries(data).map(([key, val]) => {
           if (!val) return '';
@@ -266,21 +279,16 @@
         $('#summary-section').show();
       });
 
+      // Edit form
       $('#editFormBtn').on('click', function() {
         $('#summary-section').hide();
         $('#form-section').show();
       });
 
-     $('#printBtn').on('click', function() {
-  const formData = $('#dataForm').serializeArray();
-  const dataObj = {};
-  formData.forEach(item => dataObj[item.name] = item.value);
-  dataObj.relativeAdmit = $('#relativeAdmit').is(':checked') ? 'Yes' : 'No';
-
-  localStorage.setItem('sevaFormData', JSON.stringify(dataObj));
-  window.open('print-template.html', '_blank');
-});
-
+      // Print
+      $('#printBtn').on('click', function() {
+        window.open('print-template.html', '_blank');
+      });
     });
   </script>
 </body>
